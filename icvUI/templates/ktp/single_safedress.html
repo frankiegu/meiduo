@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} <title>安全着装识别</title> {% endblock %}
+
+{% block content %}
+    <div class="container-fluid" style="margin-top: 30px;">
+        <div class="row" style="margin:0px;">
+            <div class="col-md-6">
+                <p style="font-size: 18px;line-height: 54px;height: 54px;margin:0px;">最新结果</p>
+                <img src="" alt="" class="img-responsive center-block" id="latest_img">
+                <div style="margin-top: 5px;">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>相机ID</th>
+                                <th>检测时间</th>
+                                <th>相机位置</th>
+                                <th>报警类别</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="warning" id="latest_camera_id">-</td>
+                                <td class="warning" id="latest_time">-</td>
+                                <td class="warning" id="latest_position">-</td>
+                                <td class="warning" id="latest_alarm_type">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">    
+                <div id="toolbar">
+                    <p style="margin:0;font-size: 18px;">历史记录</p>
+                </div>
+                <table id="history"></table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %} 
+    <script src="/static/ktp_js/safedress.js"></script> 
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>视频流</title>
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+    	<div class="row">
+            {% for i in range(1,5)%}
+                <div class="col-md-3" style="margin-top:30px;text-align: center;">
+                    <video id="player{{i}}" class="video-js" style="display:inline-block"> 
+                        <source src="/video/play{{ i }}.m3u8" type="application/x-mpegURL">
+                    </video>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+    		{% for i in range(5,9)%}
+                <div class="col-md-3" style="margin-top:30px;text-align: center;">
+                    <video id="player{{i}}" class="video-js" style="display:inline-block"> 
+                        <source src="/video/play{{ i }}.m3u8" type="application/x-mpegURL">
+                    </video>
+                </div>
+            {% endfor %}
+    	</div>
+    </div>
+
+{% endblock %}
+
+
+{% block script %}
+
+<link href="/static/video_static/video.css" rel="stylesheet">
+<script src="/static/video_static/video.js"></script>
+<script src="/static/video_static/video_contrib_hls_min.js"></script>
+
+<script>
+    {% for i in range(1,9) %}
+        var player{{ i }} = videojs('player{{ i }}', {width: 400, height: 225,preload:'auto',loop:false});
+        player{{i}}.play();
+    {% endfor %}
+</script>
+    <!-- <script src="/static/icv_js/video.js"></script> -->
+{% endblock %}

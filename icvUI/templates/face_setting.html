@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	<title>人脸设置</title>
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;">人脸设置</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form role="form" enctype="multipart/form-data" id="uploadForm">
+                    <div class="form-group">
+                        <label for="person_name" style="color: red;">姓名*:</label>
+                        <input type="text" class="form-control" id="person_name" placeholder="请输入姓名" name="person_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="person_id" style="color: red;">ID*:</label>
+                        <input type="text" class="form-control" id="person_id" placeholder="请输入8位数字ID" name="person_id">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: red;">文件*:</label>
+                        <input type="file" id="inputfile" accept="image/jpeg,image/jpg" name="file" >
+                        <p class="help-block">只能上传大小不大于4M,且格式为JPG的图片。</p>
+                    </div>
+                    <button class="btn btn-primary" id="face_input_btn" type="button">提交</button> 
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div id="preview_div">
+                    图片预览:
+                    <img src="" alt="" id="face_preview" class="img-responsive center-block">
+                </div>
+            </div>
+        </div>
+
+        <div class="rows">
+            <div class="col-md-12" style="padding:0px;">
+                <table id="face_table"></table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+<script src="/static/icv_js/face_setting.js"></script>
+{% endblock %}

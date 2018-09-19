@@ -1,0 +1,157 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	<title>面板识别</title>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .list-active{
+            color: white;
+            cursor: pointer;
+            background-color: orange;
+        }
+        
+        .list-group-item:hover{
+            color: white;
+            cursor: pointer;
+            background-color:steelblue;
+        }
+
+        /* .history_img{
+            width: 50px;
+            height: 30px;
+            cursor: pointer;
+        } */
+
+        #big_img_box{
+            text-align: center;
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color:rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;">面板识别</h2>
+    <div id="big_img_box" >
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" 
+                                href="#collapseOne">
+                                面板识别相机
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <ul class="list-group">
+                                {% if panel_camera %}                                    
+                                    {% for single in panel_camera %}
+                                        <li class="list-group-item" id="{{ single['camera_id'] }}">{{ single['description'] }}({{ single['camera_id'] }})</li>
+                                    {% endfor %}
+                                {% else %}
+                                    <li class="list-group-item">暂无数据</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="row" id="latest_div">
+                    <div class="col-md-6">
+                        <p style="font-size: 18px;">最新结果:</p>
+                        <img src="" alt="" class="img-responsive center-block" id="latest_img">
+                    </div>
+                    <div class="col-md-6">
+                        <div style="margin-top: 5px;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>相机ID</th>
+                                        <th>相机位置</th>
+                                        <th>检测时间</th>
+                                        <th>报警类型</th>
+                                        <th>状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="latest_camera_id" class="warning">-</td>
+                                        <td id="latest_position" class="warning">-</td>
+                                        <td id="latest_time" class="warning">-</td>
+                                        <td id="latest_alarm_type" class="warning">-</td>
+                                        <td id="latest_status_type" class="warning">-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="more_data"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="history_div" style="display:none;">
+                    <div class="col-md-6">
+                        <p style="font-size: 18px;">历史结果:</p>
+                        <img src="" alt="" class="img-responsive center-block" id="history_img">
+                    </div>
+                    <div class="col-md-6">
+                        <div style="margin-top: 5px;">
+                            <!-- <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>相机ID</th>
+                                        <th>相机位置</th>
+                                        <th>检测时间</th>
+                                        <th>报警类型</th>
+                                        <th>状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="history_camera_id" class="warning">-</td>
+                                        <td id="history_position" class="warning">-</td>
+                                        <td id="history_time" class="warning">-</td>
+                                        <td id="history_alarm_type" class="warning">-</td>
+                                        <td id="history_status_type" class="warning">-</td>
+                                    </tr>
+                                </tbody>
+                            </table> -->
+                            <div id="history_more_data"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 15px;">
+                    <div class="col-md-12">
+                        <p style="font-size: 18px;">历史记录:</p>
+                        <div id="toolbar" class="btn-group">
+                            <!-- <button id="abnormal_btn" type="button" class="btn btn-default">查看异常</button>
+                            <button id="normal_btn" type="button" class="btn btn-default">查看正常</button>
+                            <button id="all_btn" type="button" class="btn btn-default">查看全部</button> -->
+                        </div>
+                        <table id="history"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+    <script src="/static/icv_js/panel.js"></script>
+{% endblock %}

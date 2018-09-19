@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	<title>越界检测</title>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .list-active{
+            color: white;
+            cursor: pointer;
+            background-color: orange;
+        }
+        
+        .list-group-item:hover{
+            color: white;
+            cursor: pointer;
+            background-color:steelblue;
+        }
+
+        .history_img{
+            width: 50px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        #big_img_box{
+            text-align: center;
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color:rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;">越界检测</h2>
+    <div id="big_img_box" >
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" 
+                                href="#collapseOne">
+                                越界检测相机
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <ul class="list-group">
+                                {% if intrusion_camera %}                                    
+                                    {% for single in intrusion_camera %}
+                                        <li class="list-group-item" id="{{ single['camera_id'] }}">{{ single['description'] }}({{ single['camera_id'] }})</li>
+                                    {% endfor %}
+                                {% else %}
+                                    <li class="list-group-item">暂无数据</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <p style="font-size: 18px;">最新结果:</p>
+                <img src="" alt="" class="img-responsive center-block" id="latest_img">
+                <div style="margin-top: 5px;">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>相机ID</th>
+                                <th>相机位置</th>
+                                <th>检测时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="latest_camera_id" class="warning">-</td>
+                                <td id="latest_position" class="warning">-</td>
+                                <td id="latest_time" class="warning">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <p style="font-size: 18px;">历史记录:</p>
+                <table id="history"></table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+    <script src="/static/icv_js/intrusion.js"></script>
+{% endblock %}

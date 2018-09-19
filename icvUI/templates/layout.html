@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block title %}{% endblock %}
+
+    <!-- jquery & bootstrap -->
+    <script src="/static/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+
+    <!-- Bootstrap 3 -->
+    <link href="/static/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- bootstrap table -->
+    <link href="/static/bootstrap-table-master/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="/static/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
+    <script src="/static/bootstrap-table-master/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+        
+    <!-- bootstrap-select -->
+    <link href="/static/bootstrap-select-1.12.4/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <script src="/static/bootstrap-select-1.12.4/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- highcharts -->
+    <script src="/static/Highcharts-6.1.1/code/highcharts.js"></script>
+    <script src="/static/Highcharts-6.1.1/code/modules/exporting.js"></script>
+    
+    <!-- pictureviewer -->
+    <link rel="stylesheet" href="/static/icv_css/pictureViewer.css">
+    <script src="/static/icv_js/pictureViewer.js"></script>
+
+    <style>
+        #ajaxloading{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+            display: none;
+            background-color:rgba(0, 0, 0,0.5);
+            z-index: 9999;
+            color: orange;
+            font-size: 36px;
+        }
+    </style>
+
+    {% block style %} {% endblock %}
+</head>
+
+<body>
+    <!-- 修改密码模态框 -->
+    <div class="modal fade" id="modpwd_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog " aria-hidden="true" style="width: 600px;">
+                <div class="modal-content">
+                    <!-- header -->
+                    <div class="modal-header" style="background-color: #f0ad4e;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel" style="color: #fff;">
+                        更改密码
+                        {% if current_user.role == 'user' %}
+                          ({{ current_user.user_name}})
+                        {% endif %}
+                      </h4>
+                    </div>
+                    
+                    <!-- body -->
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" method="POST">
+                          {% if current_user.role != 'user' %}
+                            <div class="form-group">                            
+                                <label for="" class="col-sm-4 control-label">用户账号</label>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" id="modpwdusercode" disabled>
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-4 control-label">用户姓名</label>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" id="modpwdusername" disabled>
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            {% endif %}               
+                            <div class="form-group">
+                                <label for="" class="col-sm-4 control-label">密码</label>
+                                <div class="col-sm-6">
+                                  <input type="password" class="form-control" id="modpassword" placeholder="密码">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-4 control-label">确认密码</label>
+                                <div class="col-sm-6">
+                                  <input type="password" class="form-control" id="modpassword_confirm" placeholder="密码长度不小于6位">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+    
+                        </form>
+                    </div>
+                    
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <div id="modpwd_tips" style="display: inline-block;margin-right: 20px;color: red;"></div>
+                        <button type="button" class="btn btn-primary" id="modpwd_confirm">确认</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                    </div>
+    
+                </div>
+            </div>
+    </div>
+
+    <!-- 重启服务 -->
+    <div class="modal fade" id="restart_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog " aria-hidden="true" style="width: 600px;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header" style="background-color: red;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: #fff;">
+                    重启服务
+                    </h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+                    <p style="font-size: 24px;">启动后配置将生效，请确认你的配置已完成。</p>
+                </div>
+                
+                <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="restart_confirm">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('index') }}" style="color: #000;font-size: 20px;">智能视觉系统</a>
+          </div>
+          
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  {% if application_config['intrusion'] %}
+                    <li><a href="{{ url_for('intrusion') }}" style="font-size: 16px;">越界检测</a></li>
+                  {% endif %}
+                  {% if application_config['face'] %}
+                    <li><a href="{{ url_for('face') }}" style="font-size: 16px;">人脸识别</a></li>
+                  {% endif %}
+                  {% if application_config['safedress'] %}
+                    <li><a href="{{ url_for('safedress') }}" style="font-size: 16px;">安全着装识别</a></li>
+                  {% endif %}
+                  {% if application_config['panel'] %}
+                    <li><a href="{{ url_for('panel') }}" style="font-size: 16px;">面板识别</a></li>
+                  {% endif %}
+
+                  <li><a href="{{ url_for('statistics') }}" style="font-size: 16px;">统计报表</a></li>
+                  
+                  {% if application_config['video'] %}
+                    <li><a href="{{ url_for('video') }}" style="font-size: 16px;">视频流</a></li>
+                  {% endif %}  
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border-radius: 10px;font-size: 18px;">
+                            {% if current_user.is_authenticated %}
+                                Hi,{{ current_user.user_name }}!
+                            {% endif %}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- 只有拥有管理权限的用户才显示用户管理选项 -->
+                            {% if current_user.role in ['admin','superadmin'] %}
+                                <li><a href="{{ url_for('usermanage') }}">用户管理</a></li>
+                            {% endif %}
+                            {% if current_user.role == 'user'%}
+                                <li><a href="#" id="resetpwd">重设密码</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border-radius: 10px;font-size: 18px;">参数设置<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('base_setting') }}">基本设置</a></li>
+                            {% if application_config['intrusion'] %}
+                                <li><a href="{{ url_for('intrusion_setting') }}">越界设置</a></li>
+                            {% endif %}
+                            {% if application_config['panel'] %}
+                                <li><a href="{{ url_for('panel_setting') }}">面板设置</a></li>
+                            {% endif %}
+                            {% if application_config['face'] %}
+                                <li><a href="{{ url_for('face_setting') }}">人脸录入</a></li>
+                            {% endif %}
+                            <li><a href="#" id="restart_service" data-toggle="modal" data-target="#restart_modal">启动服务</a></li>
+                            <li><a href="#" id="stop_service">停止服务</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('logout') }}" style="font-size: 16px;">注销</a></li>
+              </ul>
+          </div>
+        </div>
+    </nav>
+    
+    <div class="container" style="display: none;" id="successful_operation">
+        <div class="row">
+            <div class="alert alert-success" role="alert" style="text-align: center;font-size: 24px;">操作成功</div>
+        </div>
+    </div>
+
+    <div id="ajaxloading">
+       正在处理，请稍候...
+    </div>
+    <script>
+        function successful_operation(){
+            $("#successful_operation").show(300);
+            $('#successful_operation').delay(500).hide(300);
+        }
+
+        function ajax_loading(){
+            $("#ajaxloading").css('lineHeight', $(window).height() + 'px')
+            $("#ajaxloading").fadeIn()
+        }
+
+        function ajax_ok(){
+            $("#ajaxloading").fadeOut()
+        }
+    </script>
+
+    <script>
+        $("#resetpwd").click(function(e,value,row,index){
+          $("#modpwd_modal").modal("toggle");
+          //修改密码确认按钮
+          $("#modpwd_confirm").click(function(e,value,row,index){
+            password = $("#modpassword").val();
+            password_confirm = $("#modpassword_confirm").val();
+            if (password != password_confirm || password.length < 6 ) {
+              $("#modpwd_tips").html("密码信息错误");
+            }else{
+              data = {
+                usercode:"{{ current_user.user_code}}",
+                password:password
+              }
+              $.post('/passwordmod',data,function(result){
+                if (result == 'right') {
+                  $("#modpwd_modal").modal("toggle");
+                  $("#alert_box_text").html("操作成功,将刷新页面..."); //添加文本
+                  $("#alert_box").show(300);
+                  $('#alert_box').delay(800).hide(300);       
+                  $("#table_server").bootstrapTable('refresh');
+                  setTimeout(function(){window.location.reload();},900);
+                }else{
+                  $("#modpwd_modal").modal("toggle");
+                  alert('修改失败');
+                  $("#table_server").bootstrapTable('refresh');
+                }
+              })
+            }
+          });
+        });
+    </script>
+
+    <script>
+        $("#restart_confirm").click(function(e){
+            $.post('/call_run',data = {"status":"restart"},function(result){
+                if (result == 'ok') {
+                    alert('操作成功')
+                    $("#restart_modal").modal('toggle')
+                }else{
+                    alert('操作失败')
+                }
+            })
+        })
+
+        $("#stop_service").click(function(e){
+            $.post('/call_stop',data = {"status":"stop"},function(result){
+                if (result == 'ok') {
+                    alert('操作成功')
+                }else{
+                    alert('操作失败')
+                }
+            })
+        })
+    </script>
+    {% block content %}{% endblock %}
+
+    {% block script %}{% endblock %}
+
+</body>
+</html>

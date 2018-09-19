@@ -1,0 +1,204 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	<title>人脸识别</title>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .list-active{
+            color: white;
+            cursor: pointer;
+            background-color: orange;
+        }
+        
+        .list-group-item:hover{
+            color: white;
+            cursor: pointer;
+            background-color:steelblue;
+        }
+
+        #big_img_box{
+            text-align: center;
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color:rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <!-- 上传当前人脸 -->
+    <div class="modal fade" id="upload_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog " aria-hidden="true" >
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header" style="background-color: #5bc0de;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: #fff;">录入当前人脸</h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-2">
+                            <form class="form-horizontal" role="form" method="POST" id="upload_face_form">
+                                <div class="form-group">
+                                    <label for="" class=" control-label" style="color: red;">姓名*:</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="upload_person_name" placeholder="请输入姓名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class=" control-label" style="color: red;">ID*:</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="upload_person_id" placeholder="请输入8位数字ID">
+                                    </div>
+                                </div>
+                                <img src="" alt="" id="upload_face_capture" class="img-responsive center-block">
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="upload_confirm">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <h2 style="text-align: center;">人脸识别</h2>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" 
+                                href="#collapseOne">
+                                人脸识别相机
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <ul class="list-group">
+                                {% if face_camera %}
+                                    {% for single in face_camera %}
+                                        <li class="list-group-item" id="{{ single['camera_id'] }}">{{ single['description'] }}({{ single['camera_id'] }})</li>
+                                    {% endfor %}
+                                {% else %}
+                                    <li class="list-group-item">暂无数据</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5" style="padding: 0px;" id="latest_div">
+                <p style="font-size: 18px;">最新结果:</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img id="latest_person_picture" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;">
+                    </div>
+                </div>
+                
+                <div style="margin: 15px 0;">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>相机ID</th>
+                                <th>相机位置</th>
+                                <th>检测时间</th>
+                                <th>姓名</th>
+                                <th>人脸ID</th>
+                                <th>相似度</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="warning" id="latest_camera_id">-</td>
+                                <td class="warning" id="latest_position">-</td>
+                                <td class="warning" id="latest_time">-</td>
+                                <td class="warning" id="latest_person_name">-</td>
+                                <td class="warning" id="latest_person_id">-</td>
+                                <td class="warning" id="latest_probability">-</td>
+                            </tr>
+                        </tbody> 
+                    </table>
+                </div>
+
+                
+                <div class="row"  style="margin: 0;">
+                    <div class="col-md-6" style="padding: 0;">
+                        <img id="latest_face_train" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;height: 300px;">
+                    </div>
+
+                    <div class="col-md-6" style="padding: 0;">
+                        <img id="latest_face_capture" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;height: 300px;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-5" style="padding: 0px;display: none;" id="history_div">
+                <p style="font-size: 18px;">历史结果:</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img id="person_picture_history" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;">
+                    </div>
+                </div>
+                
+                <div style="margin: 15px 0;">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>人脸ID</th>
+                                <th>相似度</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="warning" id="history_person_name">-</td>
+                                <td class="warning" id="history_person_id">-</td>
+                                <td class="warning" id="history_probability">-</td>
+                            </tr>
+                        </tbody> 
+                    </table>
+                </div>
+
+                <div class="row"  style="margin: 0;">
+                    <div class="col-md-6" style="padding: 0;">
+                        <img id="face_train_history" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;height: 300px;">
+                    </div>
+                    <div class="col-md-6" style="padding: 0;">
+                        <img id="face_capture_history" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;height: 300px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5" >
+                <p style="font-size: 18px;">历史记录:</p>
+                <table id="history"></table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+    <script src="/static/icv_js/face.js"></script>
+{% endblock %}

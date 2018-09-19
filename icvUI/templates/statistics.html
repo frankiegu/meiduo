@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	<title>统计报表</title>
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;">统计报表</h2>
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul id="myTab" class="nav nav-tabs">
+					{% if application_config['intrusion'] %}
+						<li><a href="#intrusion" data-toggle="tab">越界检测统计报表</a></li>
+					{% endif %}
+					
+					{% if application_config['face'] %}
+						<li><a href="#face" data-toggle="tab">人脸识别统计报表</a></li>
+					{% endif %}
+
+					{% if application_config['safedress'] %}
+						<li><a href="#safedress" data-toggle="tab">安全着装检测统计报表</a></li>
+					{% endif %}
+
+					{% if application_config['panel'] %}
+						<li><a href="#panel" data-toggle="tab">面板识别统计报表</a></li>
+					{% endif %}
+				</ul>
+				
+				<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade" id="intrusion">
+						<div style="margin-top: 15px;display: block;text-align: right;">
+							<select class="selectpicker" title="选择月份" id="intrusion_month">
+								{% if months %}
+									{% for month in months['intrusion_months']%}
+										<option value="{{ month['time'] }}">{{ month['time'] }}月</option>
+									{% endfor %}
+								{% endif %}
+							</select>
+						</div>
+						<div id="intrusion_container" style="min-width: 400px;"></div>
+					</div>
+
+					<div class="tab-pane fade" id="face">
+						<div style="margin-top: 15px;display: block;text-align: right;">
+							<select class="selectpicker" title="选择月份" id="face_month">
+								{% if months %}
+									{% for month in months['face_months']%}
+										<option value="{{ month['time'] }}">{{ month['time'] }}月</option>
+									{% endfor %}
+								{% endif %}
+							</select>
+						</div>
+						<div id="face_container" style="min-width: 400px;"></div>
+					</div>
+
+					<div class="tab-pane fade" id="safedress">
+						<div style="margin-top: 15px;display: block;text-align: right;">
+							<select class="selectpicker" title="选择月份" id="safedress_month">
+								{% if months %}
+									{% for month in months['safedress_months']%}
+										<option value="{{ month['time'] }}">{{ month['time'] }}月</option>
+									{% endfor %}
+								{% endif %}
+							</select>
+						</div>
+						<div id="safedress_container" style="min-width: 400px;"></div>
+					</div>
+
+					<div class="tab-pane fade" id="panel">
+						<div style="margin-top: 15px;display: block;text-align: right;">
+							<select class="selectpicker" title="选择月份" id="panel_month">
+								{% if months %}
+									{% for month in months['panel_months']%}
+										<option value="{{ month['time'] }}">{{ month['time'] }}月</option>
+									{% endfor %}
+								{% endif %}
+							</select>
+						</div>
+						<div id="panel_container" style="min-width: 400px;"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+    </div>
+{% endblock %}
+
+{% block script %}
+	<script src="/static/icv_js/statistics.js"></script>
+{% endblock %}

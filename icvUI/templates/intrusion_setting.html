@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	<title>越界设置</title>
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;">越界设置</h2>
+    <div class="container-fulid">
+        <div class="row" style="margin: 15px;">
+            <div class="col-md-6">
+                <div style="text-align: center;">
+                    <div style="display: inline-block;width: 150px;">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="name">选择相机</label>
+                                <select class="form-control" id="camera_select" title="选择相机">
+                                    {% if intrusion_camera %}
+                                        {% for single in intrusion_camera %}
+                                            <option value="{{ single['camera_id'] }}">{{ single['camera_id'] }}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                    <button class="btn btn-danger" id="restart_intrusion_btn" style="margin-left: 30%;">启动相机脚本</button>
+                    <button class="btn btn-warning" id="clera_ori">刷新画面</button>
+                    <button class="btn btn-success" id="post_data">提交数据</button>
+                </div>
+                
+                <div style="text-align: center;height: 502px;border: 1px dotted orange;" id="canvas_box" >
+                    <img id="canvas_img" style="display: none;height: 500px;">
+                    <canvas id="canvas" height="500" width="100%"></canvas>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <table id="intrusion_table"></table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="/static/icv_js/intrusion_setting.js"></script>
+{% endblock %}

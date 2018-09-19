@@ -1,0 +1,152 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	<title>基本设置</title>
+{% endblock %}
+
+{% block content %}
+
+    <!-- 修改相机参数模态框 -->
+    <div class="modal fade" id="modify_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog " aria-hidden="true">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header" style="background-color: orange;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: #fff;">修改</h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" method="POST">
+                        <div class="form-group">                            
+                            <label for="" class="col-sm-4 control-label"  style="color: red;">相机ID*:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="camera_id_input">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label"  style="color: red;">相机IP*:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="camera_ip_input">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label"  style="color: red;">功能*:</label>
+                            <div class="col-sm-6" id="application_box">
+                                {% if application %}
+                                    {% for single in application %}
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="{{ single['application_en'] }}" value="{{ single['application_en'] }}" >{{ single['application_zh'] }}
+                                            </label>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label" style="color: red;">描述*:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="description_input">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                
+                <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="modify_confirm">提交修改</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增相机模态框 -->
+    <div class="modal fade" id="add_camera_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog " aria-hidden="true">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header" style="background-color: #5bc0de;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: #fff;">新增</h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" method="POST">
+                        <div class="form-group">                            
+                            <label for="" class="col-sm-4 control-label" style="color: red;">相机ID*:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="new_camera_id" placeholder="相机ID，如camera1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label" style="color: red;">相机IP*:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="new_camera_ip" placeholder="相机IP，如192.168.1.101">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="add_confirm">提交添加</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除相机模态框 -->
+    <div class="modal fade" id="del_camera_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog " aria-hidden="true">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header" style="background-color: red;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: #fff;">删除</h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body" id="del_camera_body"></div>
+                
+                <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="del_confirm">删除</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <h2 style="text-align: center;">基本设置</h2>
+    
+    <div class="container">
+        <div class="row" style="margin: 0px;">
+            <div class="col-md-12">
+                <div id="toolbar" class="btn-group">
+                    <button id="add_camera_btn" type="button" class="btn btn-default" data-toggle="modal" data-target="#add_camera_modal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                    </button>
+                    <button  id="del_camera_btn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_camera_modal" disabled><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                    </button>
+                </div>
+                <table id="base_setting_table"></table> 
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="/static/icv_js/base_setting.js"></script>
+{% endblock %}

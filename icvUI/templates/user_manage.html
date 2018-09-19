@@ -1,0 +1,215 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	<title>用户管理</title>
+{% endblock %}
+
+{% block content %}
+    <!-- 添加用户模态框 -->
+    <div class="modal fade" id="add_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog " aria-hidden="true" style="width: 600px;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header" style="background-color: #337ab7;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: #fff;">添加用户</h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+
+                    <form class="form-horizontal" role="form" method="POST" id="adduser_form">
+                        <div class="form-group">                            
+                            <label for="" class="col-sm-4 control-label">用户账号</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="usercode" placeholder="不能含有中文，空格等非法字符">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label">用户姓名</label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" id="username" placeholder="用户姓名">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label">用户角色</label>
+                            <div class="col-sm-6">
+                              <select class="col-sm-6 form-control" id="role">
+                                {% if current_user.role == 'superadmin' %}
+                                  <option value="superadmin">超级管理员</option>
+                                {% endif %}
+                                  <option value="admin">班组管理员</option>
+                                  <option value="user">普通用户</option>
+                              </select>
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label">用户归属</label>
+                            <div class="col-sm-6">
+
+                                  <select class="col-sm-6 form-control" id="userfrom">
+                                    {% if groups %}
+                                        {% for single in groups %}   
+                                            <option value="{{ single['gid'] }}">{{ single['group_name'] }}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                  </select>
+                              
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                    
+
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label">密码</label>
+                            <div class="col-sm-6">
+                              <input type="password" class="form-control" id="password" placeholder="密码">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label">确认密码</label>
+                            <div class="col-sm-6">
+                              <input type="password" class="form-control" id="password_confirm" placeholder="密码长度不小于6位">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+
+                    </form>
+                </div>
+                
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div id="add_tips" style="display: inline-block;margin-right: 20px;color: red;"></div>
+                    <button type="button" class="btn btn-primary" id="adduser_confirm">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <!-- 修改用户模态框 -->
+    <div class="modal fade" id="modify_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog " aria-hidden="true" style="width: 600px;">
+                <div class="modal-content">
+                    <!-- header -->
+                    <div class="modal-header" style="background-color: #5bc0de;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel" style="color: #fff;">修改用户</h4>
+                    </div>
+                    
+                    <!-- body -->
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" method="POST" id="moduser_form">
+                            <div class="form-group">                            
+                                <label for="" class="col-sm-4 control-label">用户账号</label>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" id="modusercode"  disabled="true" value="">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-4 control-label">用户姓名</label>
+                                <div class="col-sm-6">
+                                  <input type="text" class="form-control" id="modusername"  disabled="true">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-4 control-label">用户角色</label>
+                                <div class="col-sm-6">
+                                  <select class="col-sm-6 form-control" id="modrole">
+                                    {% if current_user.role == 'superadmin' %}
+                                      <option value="superadmin">超级管理员</option>
+                                    {% endif %}
+                                      <option value="admin">班组管理员</option>
+                                      <option value="user">普通用户</option>
+                                  </select>
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-4 control-label">用户归属</label>
+                                <div class="col-sm-6">
+                                      <select class="col-sm-6 form-control" id="moduserfrom">
+                                        {% if groups %}
+                                            {% for single in groups %}   
+                                                <option value="{{ single['gid'] }}">{{ single['group_name'] }}</option>
+                                            {% endfor %}
+                                        {% endif %}
+                                      </select>                                  
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="modify_confirm">确认修改</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                    </div>
+
+                </div>
+            </div>
+    </div>
+
+    <!-- 删除用户模态框 -->
+    <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog " aria-hidden="true" style="width: 600px;">
+                <div class="modal-content">
+                    <!-- header -->
+                    <div class="modal-header" style="background-color: #c9302c;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel" style="color: #fff;">删除用户</h4>
+                    </div>
+                    
+                    <!-- body -->
+                    <div class="modal-body" id="delete_modal_body"></div>
+                    
+                    <!-- footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="delete_confirm">确认删除</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+
+
+
+    <!-- 用户管理内容 -->
+    <div class="container-fulid" style="font-size: 18px;padding: 0 15px;">
+        <div class="row" style="margin: 0px;">
+
+            <div class="alert alert-dismissible alert-info" role="alert" style="display: none;text-align: center;" id="alert_box">
+              <strong id="alert_box_text" style="font-size: 30px;">操作成功</strong>
+            </div>
+            <div class="page-header">
+                <h1>用户管理</h1>
+            </div>
+            {% if current_user.role in ['admin','superadmin'] %}
+            <div id="toolbar" class="btn-group">
+                <button id="btn_add_user" type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_modal">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>添加
+                </button>
+                
+                <button id="btn_delete_user" type="button" class="btn btn-danger"  data-target="#delete_modal" disabled><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                </button>
+            </div>
+            {% endif %}
+            <table id="table_server"></table>        
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="/static/icv_js/user_manage.js"></script>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %} <title>人脸识别</title> {% endblock %}
+
+{% block content %}
+    <div class="container-fluid" style="margin-top: 30px;margin-bottom: 20px;">
+        <div class="row" style="margin:0px;">
+            <div class="col-md-6" id="latest_div">
+                <p style="font-size: 18px;line-height: 54px;height: 54px;margin:0px;">最新结果</p>
+                <img src="" alt="" class="img-responsive center-block" id="latest_person_picture">
+                <div style="margin-top: 5px;">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>相机ID</th>
+                                <th>相机位置</th>
+                                <th>检测时间</th>
+                                <th>姓名</th>
+                                <th>人脸ID</th>
+                                <th>相似度</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="warning" id="latest_camera_id">-</td>
+                                <td class="warning" id="latest_position">-</td>
+                                <td class="warning" id="latest_time">-</td>
+                                <td class="warning" id="latest_person_name">-</td>
+                                <td class="warning" id="latest_person_id">-</td>
+                                <td class="warning" id="latest_probability">-</td>
+                            </tr>
+                        </tbody> 
+                    </table>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <img id="latest_face_train" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;height: 300px;">
+                    </div>
+                    <div class="col-md-6">
+                        <img id="latest_face_capture" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;height: 300px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="display: none;" id="history_div">
+                <p style="font-size: 18px;display: inline-block;">历史结果:</p>
+                <button class="btn btn-primary" id="back_to_latest">返回最新结果页</button>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img id="person_picture_history" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;height: 100%;">
+                    </div>
+                </div>
+                
+                <div style="margin: 15px 0;">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>人脸ID</th>
+                                <th>相似度</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="warning" id="history_person_name">-</td>
+                                <td class="warning" id="history_person_id">-</td>
+                                <td class="warning" id="history_probability">-</td>
+                            </tr>
+                        </tbody> 
+                    </table>
+                </div>
+
+                <div class="row"  style="margin: 0;">
+                    <div class="col-md-6">
+                        <img id="face_capture_history" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;height: 300px;">
+                    </div>
+                    <div class="col-md-6">
+                        <img id="face_train_history" src="" alt="" class="img-responsive" style="display: inline-block;width:100%;height: 300px;">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">    
+                <div id="toolbar">
+                    <p style="margin:0;font-size: 18px;">历史记录</p>
+                </div>
+                <table id="history"></table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %} 
+    <script src="/static/ktp_js/face.js"></script> 
+{% endblock %}

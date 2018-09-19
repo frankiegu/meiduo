@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	<title>面板设置</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="modal fade" id="panel_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog " aria-hidden="true" style="width: 600px;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header" style="background-color: #5bc0de;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: #fff;">区域标注</h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" method="POST" id="label_type_select">
+                        <div class="form-group">                            
+                            <label for="" class="col-sm-4 control-label">区域名称</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="rect_name" placeholder="如:A电流表,配电柜开关B">
+                            </div>
+                        </div>                      
+                        <div class="form-group">
+                            <label for="" class="col-sm-4 control-label">区域类型</label>
+                            <div class="col-sm-6">
+                                <select class="col-sm-6 form-control" id="rect_label">
+                                    {% if labels %}
+                                        {% for label in labels %}
+                                            <option>{{ label['label_zh'] }}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="label_confirm">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 style="text-align: center;">面板设置</h2>
+    <div class="container-fulid">
+        <div class="row" style="margin: 15px;">
+            <div class="col-md-6">
+                <div style="text-align: center;">
+                    <div style="display: inline-block;width: 150px;">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="name">选择相机</label>
+                                <select class="form-control" id="camera_select" title="选择相机">
+                                    {% if panel_camera %}
+                                        {% for single in panel_camera %}
+                                            <option value="{{ single['camera_id'] }}">{{ single['camera_id'] }}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                    <button class="btn btn-danger" id="restart_panel_btn" style="">启动相机脚本</button>
+                    <button class="btn btn-warning" id="clera_ori">刷新画面</button>
+                    <button class="btn btn-success" id="post_data">提交标注数据</button>
+
+                    <div style="display: inline-block;width: 150px;margin-left: 30px;">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="name">日常拍照时间间隔</label>
+                                <select class="form-control" id="time_select">
+                                    <option value="time_10">10分钟</option>
+                                    <option value="time_30">30分钟</option>
+                                    <option value="time_60">1小时</option>
+                                    <option value="time_120">2小时</option>
+                                    <option value="time_180">3小时</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <button class="btn btn-info" id="save_time" data-toggle="tooltip" title="保存一次将应用到所有相机">保存</button>
+
+                </div>
+                
+                <div style="text-align: center;height: 502px;border: 1px dotted orange;" id="canvas_box" >
+                    <img id="canvas_img" style="display: none;height: 500px;" src="">
+                    <canvas id="canvas" height="500" width="100%"></canvas>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <table id="panel_table"></table>
+                <h4>日常拍照时间间隔:
+                    <span id="interval_box" style="color:red;">
+                        {% if interval_data %}
+                            {{ interval_data[0]['time_interval'] }}
+                        {% else %}
+                            暂无数据
+                        {% endif %}
+                    </span>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () { $("[data-toggle='tooltip']").tooltip(); });
+    </script>
+{% endblock %}
+
+{% block script %}
+<script src="/static/icv_js/panel_setting.js"></script>
+{% endblock %}
