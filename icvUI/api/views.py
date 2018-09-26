@@ -58,7 +58,7 @@ def icv_v1_face_input():
         data = request.json
         # print(data)
         person_name = data['person_name'].strip()
-        person_id = data['person_id'].strip()
+        person_id = data['person_id'].strip()     #strip()  删除开头与结尾的字符  不写即是删除空格
         face_train = data['face_train'].strip()
         
         if '' in [person_id,person_name,face_train]:

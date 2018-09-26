@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf73958a-9497-4a9e-a8bf-74403eaecae0" name="Default" comment="" />
+    <list default="true" id="bf73958a-9497-4a9e-a8bf-74403eaecae0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icvUI/api/views.py" afterPath="$PROJECT_DIR$/icvUI/api/views.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,11 +32,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run.py">
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -42,8 +45,8 @@
       <file leaf-file-name="face_input_api.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/icvUI/api/face_input_api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-196">
-              <caret line="37" column="35" lean-forward="false" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+            <state relative-caret-position="1100">
+              <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <marker date="1537332369945" expanded="true" signature="422:477" ph="SELECT perso... face_input" />
@@ -56,9 +59,11 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/icvUI/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1332">
-              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="1232">
+              <caret line="60" column="80" lean-forward="false" selection-start-line="60" selection-start-column="80" selection-end-line="60" selection-end-column="80" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,37 +78,93 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/icvUI/app.py">
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/icvUI/dbsession/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="295" column="35" lean-forward="false" selection-start-line="295" selection-start-column="35" selection-end-line="295" selection-end-column="35" />
+            <state relative-caret-position="3718">
+              <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding>
-                <marker date="1537338095529" expanded="true" signature="910:954" ph="SELECT * FRO... account" />
-                <marker date="1537338095529" expanded="true" signature="1614:1683" ph="SELECT * FRO... account" />
+                <marker date="1537330132191" expanded="true" signature="437:542" ph="SELECT appli... application_map" />
+                <marker date="1537330132191" expanded="true" signature="584:692" ph="SELECT appli... application_map" />
+                <marker date="1537330132191" expanded="true" signature="1091:1161" ph="SELECT camer... camera" />
+                <marker date="1537330132191" expanded="true" signature="1338:1408" ph="SELECT camer... camera" />
+                <marker date="1537330132191" expanded="true" signature="1582:1657" ph="INSERT INTO camera... " />
+                <marker date="1537330132191" expanded="true" signature="2074:2136" ph="DELETE FROM " />
+                <marker date="1537330132191" expanded="true" signature="2169:2245" ph="DELETE FROM " />
+                <marker date="1537330132191" expanded="true" signature="2280:2372" ph="DELETE FROM " />
+                <marker date="1537330132191" expanded="true" signature="2423:2461" ph="DELETE FROM " />
+                <marker date="1537330132191" expanded="true" signature="2523:2568" ph="DELETE FROM " />
+                <marker date="1537330132191" expanded="true" signature="2632:2685" ph="DELETE FROM " />
+                <marker date="1537330132191" expanded="true" signature="3537:3783" ph="SELECT camer... camera" />
+                <marker date="1537330132191" expanded="true" signature="4573:4670" ph="UPDATE camer... " />
+                <marker date="1537330132191" expanded="true" signature="4881:5010" ph="DELETE FROM " />
+                <marker date="1537330132191" expanded="true" signature="4931:5009" ph="SELECT camer... camera" />
+                <marker date="1537330132191" expanded="true" signature="5167:5364" ph="INSERT INTO intrusion_ori... " />
+                <marker date="1537330132191" expanded="true" signature="5204:5364" ph="SELECT camer... camera" />
+                <marker date="1537330132191" expanded="true" signature="5313:5362" ph="SELECT intru... intrusion_ori" />
+                <marker date="1537330132191" expanded="true" signature="5504:5625" ph="DELETE FROM " />
+                <marker date="1537330132191" expanded="true" signature="5550:5624" ph="SELECT camer... camera" />
+                <marker date="1537330132191" expanded="true" signature="5770:5951" ph="INSERT INTO panel_ori... " />
+                <marker date="1537330132191" expanded="true" signature="5803:5951" ph="SELECT camer... camera" />
+                <marker date="1537330132191" expanded="true" signature="5908:5949" ph="SELECT panel... panel_ori" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/icvUI/config.py">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/icvUI/dbsession/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+            <state relative-caret-position="132">
+              <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/icvUI/call_script_handle/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/icvUI/dbsession/user.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-400">
+              <caret line="142" column="8" lean-forward="false" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+              <folding>
+                <marker date="1537267462000" expanded="true" signature="258:542" ph="SELECT user_... *" />
+                <marker date="1537267462000" expanded="true" signature="308:380" ph="SELECT *, su... account" />
+                <marker date="1537267462000" expanded="true" signature="1116:1329" ph="SELECT user_... account" />
+                <marker date="1537267462000" expanded="true" signature="1190:1271" ph="SELECT subst... " />
+                <marker date="1537267462000" expanded="true" signature="2070:2107" ph="SELECT gid,g... user_group" />
+                <marker date="1537267462000" expanded="true" signature="2306:2367" ph="SELECT gid,g... user_group" />
+                <marker date="1537267462000" expanded="true" signature="2736:2765" ph="SELECT user_... account" />
+                <marker date="1537267462000" expanded="true" signature="3027:3132" ph="INSERT INTO account... " />
+                <marker date="1537267462000" expanded="true" signature="3577:3667" ph="UPDATE accou... " />
+                <marker date="1537267462000" expanded="true" signature="4022:4064" ph="DELETE FROM " />
+                <marker date="1537267462000" expanded="true" signature="4147:4186" ph="DELETE FROM " />
+                <marker date="1537267462000" expanded="true" signature="4494:4558" ph="UPDATE accou... " />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/icvUI/config.py" />
         <option value="$PROJECT_DIR$/icvUI/static/icv_js/intrusion.js" />
-        <option value="$PROJECT_DIR$/icvUI/api/views.py" />
         <option value="$PROJECT_DIR$/icvUI/dbsession/base.py" />
         <option value="$PROJECT_DIR$/icvUI/dbsession/panel.py" />
         <option value="$PROJECT_DIR$/icvUI/dbsession/intrusion.py" />
@@ -112,6 +173,7 @@
         <option value="$PROJECT_DIR$/icvUI/api/face_input_api.py" />
         <option value="$PROJECT_DIR$/icvUI/app.py" />
         <option value="$PROJECT_DIR$/icvUI/dbsession/safedress.py" />
+        <option value="$PROJECT_DIR$/icvUI/api/views.py" />
       </list>
     </option>
   </component>
@@ -123,9 +185,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="52" />
     <option name="width" value="1297" />
-    <option name="height" value="602" />
+    <option name="height" value="574" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -186,32 +248,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fs_icv-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fs_icv-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icvUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../meiduo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v10.6.0/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
@@ -553,27 +597,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1297" height="602" extended-state="7" />
-    <editor active="true" />
+    <frame x="65" y="52" width="1297" height="574" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18406375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20478088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18541667" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18700787" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34583333" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18700787" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,91 +631,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/api/face_input_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1537332369945" expanded="true" signature="422:477" ph="SELECT perso... face_input" />
-            <marker date="1537332369945" expanded="true" signature="1272:1352" ph="INSERT INTO face_input... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/flask/blueprints.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="188" column="8" lean-forward="false" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/templates/face_setting.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/templates/face.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2970">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3058">
-          <caret line="142" column="8" lean-forward="true" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
-          <folding>
-            <marker date="1537267462000" expanded="true" signature="258:542" ph="SELECT user_... *" />
-            <marker date="1537267462000" expanded="true" signature="308:380" ph="SELECT *, su... account" />
-            <marker date="1537267462000" expanded="true" signature="1116:1329" ph="SELECT user_... account" />
-            <marker date="1537267462000" expanded="true" signature="1190:1271" ph="SELECT subst... " />
-            <marker date="1537267462000" expanded="true" signature="2070:2107" ph="SELECT gid,g... user_group" />
-            <marker date="1537267462000" expanded="true" signature="2306:2367" ph="SELECT gid,g... user_group" />
-            <marker date="1537267462000" expanded="true" signature="2736:2765" ph="SELECT user_... account" />
-            <marker date="1537267462000" expanded="true" signature="3027:3132" ph="INSERT INTO account... " />
-            <marker date="1537267462000" expanded="true" signature="3577:3667" ph="UPDATE accou... " />
-            <marker date="1537267462000" expanded="true" signature="4022:4064" ph="DELETE FROM " />
-            <marker date="1537267462000" expanded="true" signature="4147:4186" ph="DELETE FROM " />
-            <marker date="1537267462000" expanded="true" signature="4494:4558" ph="UPDATE accou... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/icvUI/dbsession/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+        <state relative-caret-position="3718">
+          <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
             <marker date="1537330132191" expanded="true" signature="437:542" ph="SELECT appli... application_map" />
             <marker date="1537330132191" expanded="true" signature="584:692" ph="SELECT appli... application_map" />
@@ -700,96 +663,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/ktp_single/dbhandle.py">
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3564">
+        <state relative-caret-position="132">
+          <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/call_script_handle/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1537267462000" expanded="true" signature="243:335" ph="SELECT camer... camera" />
-            <marker date="1537267462000" expanded="true" signature="793:1047" ph="SELECT descr... " />
-            <marker date="1537267462000" expanded="true" signature="1472:1716" ph="SELECT intru... " />
-            <marker date="1537267462000" expanded="true" signature="2272:2364" ph="SELECT camer... camera" />
-            <marker date="1537267462000" expanded="true" signature="2824:3226" ph="SELECT safed... " />
-            <marker date="1537267462000" expanded="true" signature="3654:4096" ph="SELECT safed... " />
-            <marker date="1537267462000" expanded="true" signature="4680:4767" ph="SELECT camer... camera" />
-            <marker date="1537267462000" expanded="true" signature="5222:5597" ph="SELECT face_... " />
-            <marker date="1537267462000" expanded="true" signature="6017:6397" ph="SELECT face_... " />
+            <marker date="1537267462000" expanded="true" signature="258:542" ph="SELECT user_... *" />
+            <marker date="1537267462000" expanded="true" signature="308:380" ph="SELECT *, su... account" />
+            <marker date="1537267462000" expanded="true" signature="1116:1329" ph="SELECT user_... account" />
+            <marker date="1537267462000" expanded="true" signature="1190:1271" ph="SELECT subst... " />
+            <marker date="1537267462000" expanded="true" signature="2070:2107" ph="SELECT gid,g... user_group" />
+            <marker date="1537267462000" expanded="true" signature="2306:2367" ph="SELECT gid,g... user_group" />
+            <marker date="1537267462000" expanded="true" signature="2736:2765" ph="SELECT user_... account" />
+            <marker date="1537267462000" expanded="true" signature="3027:3132" ph="INSERT INTO account... " />
+            <marker date="1537267462000" expanded="true" signature="3577:3667" ph="UPDATE accou... " />
+            <marker date="1537267462000" expanded="true" signature="4022:4064" ph="DELETE FROM " />
+            <marker date="1537267462000" expanded="true" signature="4147:4186" ph="DELETE FROM " />
+            <marker date="1537267462000" expanded="true" signature="4494:4558" ph="UPDATE accou... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/static/icv_js/intrusion.js">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        <state relative-caret-position="374">
+          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/panel.py">
+    <entry file="file://$PROJECT_DIR$/icvUI/api/face_input_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-537">
-          <caret line="140" column="25" lean-forward="false" selection-start-line="140" selection-start-column="25" selection-end-line="140" selection-end-column="25" />
+        <state relative-caret-position="1100">
+          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
           <folding>
-            <marker date="1537330151076" expanded="true" signature="193:373" ph="SELECT panel... camera" />
-            <marker date="1537330151076" expanded="true" signature="751:783" ph="SELECT label... panel_label" />
-            <marker date="1537330151076" expanded="true" signature="1167:1249" ph="SELECT camer... panel_first_frame" />
-            <marker date="1537330151076" expanded="true" signature="1633:1692" ph="UPDATE panel... " />
-            <marker date="1537330151076" expanded="true" signature="2088:2362" ph="SELECT descr... " />
-            <marker date="1537330151076" expanded="true" signature="2910:3167" ph="SELECT panel... " />
-            <marker date="1537330151076" expanded="true" signature="3224:3481" ph="SELECT panel... " />
-            <marker date="1537330151076" expanded="true" signature="3523:3744" ph="SELECT panel... " />
-            <marker date="1537330151076" expanded="true" signature="4371:4401" ph="SELECT * FRO... panel_daily_time" />
-            <marker date="1537330151076" expanded="true" signature="4525:4589" ph="INSERT INTO panel_daily_time... " />
-            <marker date="1537330151076" expanded="true" signature="4697:4753" ph="UPDATE panel... " />
-            <marker date="1537330151076" expanded="true" signature="5128:5158" ph="SELECT * FRO... panel_daily_time" />
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1537332369945" expanded="true" signature="422:477" ph="SELECT perso... face_input" />
+            <marker date="1537332369945" expanded="true" signature="1272:1352" ph="INSERT INTO face_input... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/statistics.py">
+    <entry file="file://$PROJECT_DIR$/icvUI/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1249">
-          <caret line="68" column="34" lean-forward="false" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
+        <state relative-caret-position="1320">
+          <caret line="60" column="80" lean-forward="false" selection-start-line="60" selection-start-column="80" selection-end-line="60" selection-end-column="80" />
           <folding>
-            <marker date="1537332358909" expanded="true" signature="229:300" ph="SELECT DISTI... " />
-            <marker date="1537332358909" expanded="true" signature="441:507" ph="SELECT DISTI... " />
-            <marker date="1537332358909" expanded="true" signature="635:706" ph="SELECT DISTI... " />
-            <marker date="1537332358909" expanded="true" signature="840:907" ph="SELECT DISTI... " />
-            <marker date="1537332358909" expanded="true" signature="1566:1828" ph="SELECT intru... camera" />
-            <marker date="1537332358909" expanded="true" signature="1967:2209" ph="SELECT panel... camera" />
-            <marker date="1537332358909" expanded="true" signature="2370:2467" ph="SELECT camer... camera" />
-            <marker date="1537332358909" expanded="true" signature="2661:2850" ph="SELECT count... face_result" />
-            <marker date="1537332358909" expanded="true" signature="2988:3178" ph="SELECT count... face_result" />
-            <marker date="1537332358909" expanded="true" signature="4006:4108" ph="SELECT camer... camera" />
-            <marker date="1537332358909" expanded="true" signature="4311:4505" ph="SELECT count... safedress_result" />
-            <marker date="1537332358909" expanded="true" signature="4643:4843" ph="SELECT count... safedress_result" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/flask/helpers.py">
+    <entry file="file://$PROJECT_DIR$/icvUI/api/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6469">
-          <caret line="703" column="35" lean-forward="false" selection-start-line="703" selection-start-column="35" selection-end-line="703" selection-end-column="35" />
+        <state relative-caret-position="44">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/templates/user_manage.html">
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3080">
-          <caret line="140" column="33" lean-forward="false" selection-start-line="140" selection-start-column="33" selection-end-line="140" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/flask_login/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="219" column="15" lean-forward="true" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="3718">
+          <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+          <folding>
+            <marker date="1537330132191" expanded="true" signature="437:542" ph="SELECT appli... application_map" />
+            <marker date="1537330132191" expanded="true" signature="584:692" ph="SELECT appli... application_map" />
+            <marker date="1537330132191" expanded="true" signature="1091:1161" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="1338:1408" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="1582:1657" ph="INSERT INTO camera... " />
+            <marker date="1537330132191" expanded="true" signature="2074:2136" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2169:2245" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2280:2372" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2423:2461" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2523:2568" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2632:2685" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="3537:3783" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="4573:4670" ph="UPDATE camer... " />
+            <marker date="1537330132191" expanded="true" signature="4881:5010" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="4931:5009" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="5167:5364" ph="INSERT INTO intrusion_ori... " />
+            <marker date="1537330132191" expanded="true" signature="5204:5364" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="5313:5362" ph="SELECT intru... intrusion_ori" />
+            <marker date="1537330132191" expanded="true" signature="5504:5625" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="5550:5624" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="5770:5951" ph="INSERT INTO panel_ori... " />
+            <marker date="1537330132191" expanded="true" signature="5803:5951" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="5908:5949" ph="SELECT panel... panel_ori" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -801,9 +778,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/call_script_handle/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1537267462000" expanded="true" signature="258:542" ph="SELECT user_... *" />
+            <marker date="1537267462000" expanded="true" signature="308:380" ph="SELECT *, su... account" />
+            <marker date="1537267462000" expanded="true" signature="1116:1329" ph="SELECT user_... account" />
+            <marker date="1537267462000" expanded="true" signature="1190:1271" ph="SELECT subst... " />
+            <marker date="1537267462000" expanded="true" signature="2070:2107" ph="SELECT gid,g... user_group" />
+            <marker date="1537267462000" expanded="true" signature="2306:2367" ph="SELECT gid,g... user_group" />
+            <marker date="1537267462000" expanded="true" signature="2736:2765" ph="SELECT user_... account" />
+            <marker date="1537267462000" expanded="true" signature="3027:3132" ph="INSERT INTO account... " />
+            <marker date="1537267462000" expanded="true" signature="3577:3667" ph="UPDATE accou... " />
+            <marker date="1537267462000" expanded="true" signature="4022:4064" ph="DELETE FROM " />
+            <marker date="1537267462000" expanded="true" signature="4147:4186" ph="DELETE FROM " />
+            <marker date="1537267462000" expanded="true" signature="4494:4558" ph="UPDATE accou... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/icvUI/api/face_input_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-196">
+        <state relative-caret-position="814">
           <caret line="37" column="35" lean-forward="false" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -815,8 +828,254 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/icvUI/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1332">
+        <state relative-caret-position="132">
           <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/api/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6490">
+          <caret line="295" column="35" lean-forward="false" selection-start-line="295" selection-start-column="35" selection-end-line="295" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/api/face_input_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1537332369945" expanded="true" signature="422:477" ph="SELECT perso... face_input" />
+            <marker date="1537332369945" expanded="true" signature="1272:1352" ph="INSERT INTO face_input... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/flask/blueprints.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="188" column="8" lean-forward="false" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/templates/face_setting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/templates/face.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2970">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/static/icv_js/intrusion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/flask/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6469">
+          <caret line="703" column="35" lean-forward="false" selection-start-line="703" selection-start-column="35" selection-end-line="703" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/templates/user_manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3080">
+          <caret line="140" column="33" lean-forward="false" selection-start-line="140" selection-start-column="33" selection-end-line="140" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/flask_login/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="219" column="15" lean-forward="true" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="34" column="43" lean-forward="true" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4048">
+          <caret line="295" column="35" lean-forward="false" selection-start-line="295" selection-start-column="35" selection-end-line="295" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/mysql/connector/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/mysql/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/ktp_single/dbhandle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-688">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/PIL/Image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2112">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/call_script_handle/call.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/safedress.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/panel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3080">
+          <caret line="140" column="25" lean-forward="false" selection-start-line="140" selection-start-column="25" selection-end-line="140" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/intrusion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3718">
+          <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+          <folding>
+            <marker date="1537330132191" expanded="true" signature="437:542" ph="SELECT appli... application_map" />
+            <marker date="1537330132191" expanded="true" signature="584:692" ph="SELECT appli... application_map" />
+            <marker date="1537330132191" expanded="true" signature="1091:1161" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="1338:1408" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="1582:1657" ph="INSERT INTO camera... " />
+            <marker date="1537330132191" expanded="true" signature="2074:2136" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2169:2245" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2280:2372" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2423:2461" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2523:2568" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="2632:2685" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="3537:3783" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="4573:4670" ph="UPDATE camer... " />
+            <marker date="1537330132191" expanded="true" signature="4881:5010" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="4931:5009" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="5167:5364" ph="INSERT INTO intrusion_ori... " />
+            <marker date="1537330132191" expanded="true" signature="5204:5364" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="5313:5362" ph="SELECT intru... intrusion_ori" />
+            <marker date="1537330132191" expanded="true" signature="5504:5625" ph="DELETE FROM " />
+            <marker date="1537330132191" expanded="true" signature="5550:5624" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="5770:5951" ph="INSERT INTO panel_ori... " />
+            <marker date="1537330132191" expanded="true" signature="5803:5951" ph="SELECT camer... camera" />
+            <marker date="1537330132191" expanded="true" signature="5908:5949" ph="SELECT panel... panel_ori" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/face.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icvUI/call_script_handle/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -829,82 +1088,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
+    <entry file="file://$PROJECT_DIR$/icvUI/api/face_input_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="295" column="35" lean-forward="false" selection-start-line="295" selection-start-column="35" selection-end-line="295" selection-end-column="35" />
+        <state relative-caret-position="1100">
+          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
           <folding>
-            <marker date="1537338095529" expanded="true" signature="910:954" ph="SELECT * FRO... account" />
-            <marker date="1537338095529" expanded="true" signature="1614:1683" ph="SELECT * FRO... account" />
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1537332369945" expanded="true" signature="422:477" ph="SELECT perso... face_input" />
+            <marker date="1537332369945" expanded="true" signature="1272:1352" ph="INSERT INTO face_input... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/intrusion.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding>
-            <marker date="1537331385624" expanded="true" signature="196:396" ph="SELECT intru... camera" />
-            <marker date="1537331385624" expanded="true" signature="783:869" ph="SELECT camer... intrusion_first_frame" />
-            <marker date="1537331385624" expanded="true" signature="1257:1320" ph="UPDATE intru... " />
-            <marker date="1537331385624" expanded="true" signature="1720:1974" ph="SELECT descr... " />
-            <marker date="1537331385624" expanded="true" signature="2377:2583" ph="SELECT intru... " />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/face.py">
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/statistics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-506">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding>
-            <marker date="1537331401937" expanded="true" signature="268:323" ph="SELECT perso... face_input" />
-            <marker date="1537331401937" expanded="true" signature="1101:1199" ph="SELECT camer... camera" />
-            <marker date="1537331401937" expanded="true" signature="1576:1951" ph="SELECT face_... " />
-            <marker date="1537331401937" expanded="true" signature="2361:2708" ph="SELECT face_... " />
-            <marker date="1537331401937" expanded="true" signature="3322:3377" ph="SELECT perso... face_input" />
-            <marker date="1537331401937" expanded="true" signature="4294:4349" ph="SELECT perso... face_input" />
-          </folding>
+        <state relative-caret-position="1496">
+          <caret line="68" column="34" lean-forward="false" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/safedress.py">
+    <entry file="file://$PROJECT_DIR$/icvUI/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding>
-            <marker date="1537267462000" expanded="true" signature="207:611" ph="SELECT safed... " />
-            <marker date="1537267462000" expanded="true" signature="294:611" ph="SELECT safed... " />
-            <marker date="1537267462000" expanded="true" signature="1154:1238" ph="SELECT camer... camera" />
-            <marker date="1537267462000" expanded="true" signature="1620:2022" ph="SELECT safed... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="34" column="43" lean-forward="true" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        <state relative-caret-position="1232">
+          <caret line="60" column="80" lean-forward="false" selection-start-line="60" selection-start-column="80" selection-end-line="60" selection-end-column="80" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icvUI/config.py">
+    <entry file="file://$PROJECT_DIR$/icvUI/dbsession/user.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="-400">
+          <caret line="142" column="8" lean-forward="false" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+          <folding>
+            <marker date="1537267462000" expanded="true" signature="258:542" ph="SELECT user_... *" />
+            <marker date="1537267462000" expanded="true" signature="308:380" ph="SELECT *, su... account" />
+            <marker date="1537267462000" expanded="true" signature="1116:1329" ph="SELECT user_... account" />
+            <marker date="1537267462000" expanded="true" signature="1190:1271" ph="SELECT subst... " />
+            <marker date="1537267462000" expanded="true" signature="2070:2107" ph="SELECT gid,g... user_group" />
+            <marker date="1537267462000" expanded="true" signature="2306:2367" ph="SELECT gid,g... user_group" />
+            <marker date="1537267462000" expanded="true" signature="2736:2765" ph="SELECT user_... account" />
+            <marker date="1537267462000" expanded="true" signature="3027:3132" ph="INSERT INTO account... " />
+            <marker date="1537267462000" expanded="true" signature="3577:3667" ph="UPDATE accou... " />
+            <marker date="1537267462000" expanded="true" signature="4022:4064" ph="DELETE FROM " />
+            <marker date="1537267462000" expanded="true" signature="4147:4186" ph="DELETE FROM " />
+            <marker date="1537267462000" expanded="true" signature="4494:4558" ph="UPDATE accou... " />
+          </folding>
         </state>
       </provider>
     </entry>
